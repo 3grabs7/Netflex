@@ -1,0 +1,151 @@
+﻿<UserControl x:Class="FlexApp.UserPageAccountInformation"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FlexApp"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="11*"/>
+            <RowDefinition Height="366*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="23*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="151*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+
+        <TabControl Grid.Row="0" Grid.RowSpan="4"
+                    Grid.Column="0" Grid.ColumnSpan="3" 
+                    Background="Black" >
+
+            <!-- Change/View Adress -->
+
+            <TabItem Header="Adress" >
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30*"/>
+                        <ColumnDefinition Width="170*"/>
+                        <ColumnDefinition Width="170*"/>
+                        <ColumnDefinition Width="30*"/>
+                        <ColumnDefinition Width="170*"/>
+                        <ColumnDefinition Width="170*"/>
+                        <ColumnDefinition Width="30*"/>
+                        <ColumnDefinition Width="30*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="324*"/>
+                        <RowDefinition Height="67*"/>
+                        <RowDefinition Height="31*"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Left Side -->
+
+                    <StackPanel Grid.Column="1" Grid.ColumnSpan="2"   >
+
+                        <Label Content="First Name" Foreground="White" />
+                        <TextBox Name="FirstName" Background="AliceBlue" FontSize="18" />
+
+                        <Label Content="Last Name" Foreground="White" />
+                        <TextBox Name="LastName" Background="AliceBlue" FontSize="18"  />
+
+                        <Label Content="Phone No" Foreground="White" />
+                        <TextBox Name="PhoneNo" Background="AliceBlue" FontSize="18"  />
+
+                    </StackPanel>
+
+                    <!-- Right Side -->
+
+                    <StackPanel Grid.Column="4"  Grid.ColumnSpan="2" >
+
+                        <Label Content="Street" Foreground="White" />
+                        <TextBox Name="Street" Background="AliceBlue" FontSize="18" />
+
+                        <Label Content="Postal" Foreground="White" />
+                        <TextBox Name="Postal" Background="AliceBlue" FontSize="18" />
+
+                        <Label Content="City" Foreground="White" />
+                        <TextBox Name="City" Background="AliceBlue" FontSize="18" />
+
+                        <Label Content="State" Foreground="White" />
+                        <TextBox Name="State" Background="AliceBlue" FontSize="18" />
+
+                    </StackPanel>
+
+
+                    <Button
+                        Background="Black" 
+                        Click="Adress_Save_Changes_Click" 
+                        Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3"    >
+                        <Label Foreground="White"
+                               FontSize="20"
+                            Content="S a v e   C h a n g e s" />
+                    </Button>
+
+                </Grid>
+
+            </TabItem>
+
+            <!-- Change/View Username/Password/Email -->
+            <TabItem x:Name="UserInfo" Header="UserInfo" >
+                <StackPanel Grid.Column="4" Grid.Row="1" Grid.ColumnSpan="1" Grid.RowSpan="2"  >
+
+                    <Label Content="E-mail" Foreground="White" />
+                    <TextBox Name="Email" Background="AliceBlue" FontSize="18" 
+                     />
+
+                    <Label Content="Username" Foreground="White" />
+                    <TextBox Name="Username" Background="AliceBlue" FontSize="18" 
+                             />
+
+                    <Label Content="Password" Foreground="White" />
+                    <PasswordBox Name="Password" Background="AliceBlue" FontSize="18" 
+                             />
+
+                    <Label Content="Re-enter Password" Foreground="White" />
+                    <PasswordBox Name="PasswordRepeat" Background="AliceBlue" FontSize="18" 
+                         />
+
+                    <Button Margin="0,15,0,0" Click="UserInfo_Save_Changes_Click">
+                        <Label Content="SaveChanges"/>
+                    </Button>
+
+                </StackPanel>
+            </TabItem>
+
+            <!-- Change/View Avatar -->
+            <TabItem Header="Avatar">
+                <WrapPanel >
+
+                    <Image Height="140" Width="120" Name="Avatar" 
+                   Margin="5,5,5,5" />
+
+                    <Rectangle Width="8"/>
+
+                    <Button Height="50" Width="220" Background="Black" 
+                    Click="Browse_Click" >
+                        <Label Content="Browse" FontSize="22"
+                       FontWeight="DemiBold"  Foreground="White" />
+                    </Button>
+
+                    <Button Height="50" Width="220" Background="Black" 
+                    Click="Confirm_Click" >
+                        <Label Content="Confirm" FontSize="22"
+                       FontWeight="DemiBold"  Foreground="White" />
+                    </Button>
+
+                </WrapPanel>
+            </TabItem>
+
+
+        </TabControl>
+
+
+
+    </Grid>
+</UserControl>

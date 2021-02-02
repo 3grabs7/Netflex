@@ -1,0 +1,82 @@
+﻿<Window x:Class="FlexApp.PaymentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FlexApp"
+        mc:Ignorable="d"
+        Title="PaymentWindow" Height="450" Width="800"
+        AllowsTransparency="true" WindowStyle="None"
+        Background="Black"
+        MouseDown="Window_MouseDown">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="29*"/>
+            <RowDefinition Height="341*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="20*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30*"/>
+            <ColumnDefinition Width="711*"/>
+            <ColumnDefinition Width="30*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Orientation="Horizontal" 
+                    Grid.Row="1" Grid.Column="1"  
+                    HorizontalAlignment="Center">
+            <!-- Left Side -->
+            <StackPanel Orientation="Vertical" Width="320">
+                
+                <Label Content="Name" Foreground="White"/>
+                <TextBox Name="nName"  Height="40"/>
+                <Label Content="Card Number (15-18 digits)" Foreground="White"/>
+                <TextBox Name="CardNo"  Height="40"/>
+                <Label Content="CSV (3 digits)" Foreground="White"/>
+                <TextBox Name="csv"  Height="40"/>
+                <Label Content="Expire Date" Foreground="White"/>
+                <StackPanel Orientation="Horizontal">
+                    
+                    <Label Content="Month" Foreground="White" />
+                    <!-- Combobox för månader -->
+                    <ComboBox Name="expMonth" ItemsSource="{Binding ComboMonth}" DisplayMemberPath="Month" 
+                              SelectedValuePath="Month" />
+
+                    <Label Content="Year" Foreground="White" />
+                    <!-- Combobox för år -->
+                    <ComboBox Name="expYear" ItemsSource="{Binding ComboYear}" DisplayMemberPath="Year" 
+                              SelectedValuePath="Year" />
+
+                </StackPanel>
+                
+            </StackPanel>
+            <Rectangle Width="20"/>
+            <!-- Right Side -->
+            <StackPanel Orientation="Vertical" Width="320">
+                <Label Content="Upload Photo Id" Foreground="White"/>
+                <Image Name="PhotoId" Height="240"/>
+                <Rectangle Height="20"/>
+                <Button Name="BrowsePhoto" Background="Black" Width="100"
+                        Click="BrowsePhoto_Click">
+                    <Label Content="Browse" Foreground="White" />
+                </Button>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1"
+                    HorizontalAlignment="Center" >
+            <Button Name="Cancel" Click="Cancel_Click"
+                Width="200"  Background="Black"
+                    >
+                <Label Content="Cancel" Foreground="White"
+                       FontSize="25" FontWeight="Bold" />
+            </Button>
+            <Rectangle Width="80"/>
+            <Button Name="Pay" Click="Pay_Click"
+                Width="200" Background="Black" >
+                <Label Content="Pay" Foreground="White"
+                       FontSize="25" FontWeight="Bold"  />
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>
